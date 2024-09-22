@@ -8,8 +8,8 @@ let users = [
     {id: 2, name:"ali", email:'ali@gmail.com'}
 ]
 
-app.get('/api/users', (req, res)=>{
-    res.status(200).json({message:'fetching all users', data:users})
+app.get('/api/users/', (req, res)=>{
+    res.status(200).json({message:'fetching all users', data: users})
 })
 app.post('/api/users', (req, res)=>{
     const newUser = {
@@ -18,7 +18,7 @@ app.post('/api/users', (req, res)=>{
         email: 'abc@gmail.com'
     }
     users.push(newUser)
-    res.status(201).json({message: 'New user successfully created!', data: users})
+    res.status(201).json({message: 'New user successfully created!', newUser})
 })
 app.delete('/api/users/:id',(req, res)=>{
     let userId = parseInt(req.params.id)
@@ -33,7 +33,21 @@ app.delete('/api/users/:id',(req, res)=>{
     // Send response
     res.status(200).json({ message: 'User deleted successfully', users });
 
-})
+});
+app.put('/api/users/:id', (req, res)=>{
+    const userId = parseInt(req.params.id); // Get user ID from request parameters
+    const { name, email } = req.body; // Destructure name and email from request body
+    // Find user index
+    const userIndex = users.findIndex(user => user.id === userId);
+    if (userIndex === -1) {
+        return res.status(404).json({ message: 'User not found' });
+    }
+    // Update the user details
+    users[userIndex] = { ...users[userIndex], name, email };
+
+    // Send response
+    res.status(200).json({ message: 'User updated successfully', user: users[userIndex] });
+});
 app.listen(PORT, ()=>{
     console.log(`The server is listening on http://localhost:${PORT}`)
 })
