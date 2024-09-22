@@ -2,7 +2,7 @@ import express from 'express'
 const app = express()
 // json middleware for parsing application/json
 app.use(express.json())
-const PORT = 5000
+const PORT = 3000
 let users = [
     {id: 1, name:"ibad", email:'ibad@gmail.com'},
     {id: 2, name:"ali", email:'ali@gmail.com'},
