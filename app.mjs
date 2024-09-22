@@ -14,6 +14,8 @@ app.post('/api/users', (req, res)=>{
         name : "khan",
         email:"khan@gmail.com"
     }
+    users.push(newUser)
+    res.status(201).json({message: 'New user successfully created!', data: users})
 })
 app.listen(PORT, ()=>{
     console.log(`The server is listening on http://localhost:${PORT}`)
