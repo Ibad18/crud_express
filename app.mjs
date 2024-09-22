@@ -17,6 +17,10 @@ app.post('/api/users', (req, res)=>{
     users.push(newUser)
     res.status(201).json({message: 'New user successfully created!', data: users})
 })
+app.delete('api/users/:id',(req, res)=>{
+    let userId = req.params.id
+    console.log(userId)
+})
 app.listen(PORT, ()=>{
     console.log(`The server is listening on http://localhost:${PORT}`)
 })
