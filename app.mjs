@@ -20,6 +20,7 @@ app.post('/api/users', (req, res)=>{
 app.delete('api/users/:id',(req, res)=>{
     let userId = req.params.id
     console.log(userId)
+    res.status(200).json({message:`${userId}`})
 })
 app.listen(PORT, ()=>{
     console.log(`The server is listening on http://localhost:${PORT}`)
