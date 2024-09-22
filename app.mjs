@@ -11,8 +11,8 @@ app.get('/api/users', (req, res)=>{
 app.post('/api/users', (req, res)=>{
     const newUser = {
         id : users.length+1,
-        name : "khan",
-        email:"khan@gmail.com"
+        name: "abc",
+        email: 'abc@gmail.com'
     }
     users.push(newUser)
     res.status(201).json({message: 'New user successfully created!', data: users})
