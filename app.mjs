@@ -5,7 +5,8 @@ app.use(express.json())
 const PORT = 5000
 let users = [
     {id: 1, name:"ibad", email:'ibad@gmail.com'},
-    {id: 2, name:"ali", email:'ali@gmail.com'}
+    {id: 2, name:"ali", email:'ali@gmail.com'},
+    {id: 3, name:"umar", email:'umar@gmail.com'}
 ]
 
 app.get('/api/users/', (req, res)=>{
@@ -44,7 +45,6 @@ app.put('/api/users/:id', (req, res)=>{
     }
     // Update the user details
     users[userIndex] = { ...users[userIndex], name, email };
-
     // Send response
     res.status(200).json({ message: 'User updated successfully', user: users[userIndex] });
 });
