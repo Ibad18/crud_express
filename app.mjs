@@ -10,7 +10,7 @@ app.get('/api/users', (req, res)=>{
 })
 app.post('/api/users', (req, res)=>{
     const newUser = {
-        userId : users.length+1,
+        id : users.length+1,
         name : "khan",
         email:"khan@gmail.com"
     }
