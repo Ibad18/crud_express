@@ -6,7 +6,8 @@ const PORT = 5000
 let users = [
     {id: 1, name:"ibad", email:'ibad@gmail.com'},
     {id: 2, name:"ali", email:'ali@gmail.com'},
-    {id: 3, name:"umar", email:'umar@gmail.com'}
+    {id: 3, name:"umar", email:'umar@gmail.com'},
+    {id: 4, name:"usman", email:'usman@gmail.com'}
 ]
 
 app.get('/api/users/', (req, res)=>{
@@ -50,4 +51,4 @@ app.put('/api/users/:id', (req, res)=>{
 });
 app.listen(PORT, ()=>{
     console.log(`The server is listening on http://localhost:${PORT}`)
-})
+});
